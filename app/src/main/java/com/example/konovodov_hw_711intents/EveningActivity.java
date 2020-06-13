@@ -17,14 +17,8 @@ public class EveningActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evening);
         eveningTime = findViewById(R.id.eveningTime);
-        Date currentDate = new Date();
 
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-        String dateText = dateFormat.format(currentDate);
-        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-        String timeText = timeFormat.format(currentDate);
-
-        eveningTime.setText(dateText + "/" + timeText);
+        eveningTime.setText(TimeUtils.getDate() + "/" + TimeUtils.getTime());
         setTitle("EVENING_ACTIVITY");
     }
 }

@@ -37,16 +37,10 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy / mm.ss.mmm");
-                //textView.setText(format.format(new Date()));
-                Date currentDate = new Date();
 
-                DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-                String dateText = dateFormat.format(currentDate);
-                DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-                String timeText = timeFormat.format(currentDate);
+                String timeText = TimeUtils.getTime();
 
-                textView.setText(dateText + "/" + timeText);
+                textView.setText(TimeUtils.getDate() + "/" + timeText);
 
                 Intent intent = new Intent(Intent.ACTION_SYNC);
                 if ((timeText.compareTo(MORNING_FIRST) > 0) && (timeText.compareTo(MORNING_SECOND) < 0)) {

@@ -18,14 +18,8 @@ public class MorningActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_morning);
         morningTime = findViewById(R.id.morningTime);
-        Date currentDate = new Date();
 
-        DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-        String dateText = dateFormat.format(currentDate);
-        DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-        String timeText = timeFormat.format(currentDate);
-
-        morningTime.setText(dateText + "/" + timeText);
+        morningTime.setText(TimeUtils.getDate() + "/" + TimeUtils.getTime());
         setTitle("MORNING_ACTIVITY");
     }
 }
